@@ -5,6 +5,11 @@
     {
         <li class="list-group-item">
             @country.sName
+            <a asp-controller="Countries"
+               asp-action="CountryInfo"
+               asp-route-isocode="@country.sISOCode">
+                Details
+            </a>
         </li>
     }
 </ul>

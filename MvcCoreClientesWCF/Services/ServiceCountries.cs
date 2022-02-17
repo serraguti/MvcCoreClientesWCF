@@ -28,5 +28,14 @@ namespace MvcCoreClientesWCF.Services
             response.Body.ListOfCountryNamesByNameResult;
             return objetos;
         }
+
+        public async Task<tCountryInfo>
+            GetCountryInfo(string isoCode)
+        {
+            FullCountryInfoResponse
+                response = await this.client.FullCountryInfoAsync(isoCode);
+            tCountryInfo country = response.Body.FullCountryInfoResult;
+            return country;
+        }
     }
 }

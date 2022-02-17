@@ -1,0 +1,26 @@
+﻿@model tCountryInfo
+
+<a asp-controller="Countries"
+   asp-action="Index">
+    Back to list
+</a>
+<ul class="list-group">
+    <li class="list-group-item">
+        Country: @Model.sName
+    </li>
+    <li class="list-group-item">
+        Capital City: @Model.sCapitalCity
+    </li>
+    <li class="list-group-item">
+        Phone Code: @Model.sPhoneCode
+    </li>
+    <li class="list-group-item">
+        Continent Code: @Model.sContinentCode
+    </li>
+    <li class="list-group-item">
+        Currency: @Model.sCurrencyISOCode
+    </li>
+    <li class="list-group-item">
+        Flag: @Model.sCountryFlag
+    </li>
+</ul>
