@@ -1,0 +1,18 @@
+﻿@model List<Provincia>
+<h1 style="color:fuchsia">
+    Servicio WCF Catastro
+</h1>
+
+<ul class="list-group">
+    @foreach (Provincia p in Model)
+    {
+        <li class="list-group-item">
+            @p.Nombre
+            <a asp-controller="Catastro"
+               asp-action="Municipios"
+               asp-route-idprovincia="@p.IdProvincia" class="btn btn-dark">
+                Municipios
+            </a>
+        </li>
+    }
+</ul>

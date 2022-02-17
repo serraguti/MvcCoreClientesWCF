@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcCoreClientesWCF.Services;
+using ReferenceCatastro;
 using ReferenceNumberConversion;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,8 @@ namespace MvcCoreClientesWCF
             services.AddSingleton<NumberConversionSoapTypeClient>
                 (z => clientNumberConversion);
             services.AddTransient<ServiceNumberConversion>();
+            services.AddSingleton<CallejerodelasedeelectrónicadelcatastroSoapClient>();
+            services.AddTransient<ServiceCatastro>();
             services.AddControllersWithViews();
         }
 
