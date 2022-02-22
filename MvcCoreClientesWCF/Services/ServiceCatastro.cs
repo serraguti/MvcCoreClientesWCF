@@ -39,5 +39,17 @@ namespace MvcCoreClientesWCF.Services
             }
             return listProvincias;
         }
+
+        public async Task<List<string>> GetMunicipiosAsync(string nombreProvincia)
+        {
+            ConsultaMunicipio1 response =
+            await this.client.ObtenerMunicipiosAsync(nombreProvincia, null);
+            XmlNode nodo = response.Municipios;
+            XDocument document = XDocument.Parse(nodo.OuterXml);
+            XNamespace ns = "http://www.catastro.meh.es/";
+            var consulta = from datos in document.Descendants(ns + "muni")
+                           select datos.Element(ns + "nm").Value;
+            return consulta.ToList();
+        }
     }
 }
